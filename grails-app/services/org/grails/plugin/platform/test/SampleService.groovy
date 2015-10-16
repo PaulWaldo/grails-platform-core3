@@ -1,0 +1,69 @@
+/* Copyright 2011-2013 the original author or authors:
+ *
+ *    Marc Palmer (marc@grailsrocks.com)
+ *    Stéphane Maldini (smaldini@vmware.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.grails.plugin.platform.test
+
+import grails.events.Listener
+import org.grails.plugin.platform.events.EventMessage
+
+/**
+ * @file
+ * @author Stephane Maldini <smaldini@vmware.com>
+ * @version 1.0
+ * @date 02/01/12
+
+ * @section DESCRIPTION
+ *
+ * [Does stuff]
+ */
+class SampleService {
+
+    @Listener(topic = 'beforeInsert', namespace = 'gorm')
+    void beforeInsertBook(EventMessage msg) {
+        println "will insert domain - $msg.data"
+    }
+
+    @Listener(topic = 'beforeInsert', namespace = 'gorm')
+    void beforeInsertAuthor(Author author) {
+        println "will insert author - $author.name"
+    }
+
+    @Listener(namespace = 'gorm')
+    void afterInsert(Author author) {
+        println "after insert author -  $author.name"
+    }
+
+    @Listener(topic = 'sampleHello', namespace = 'platformCore')
+    def testEvent() throws Exception{
+        println "Hello (bas) !!!!"
+        'worked 1'
+    }
+
+    @Listener(namespace = 'lal')
+    def sampleHello(test) {
+        println "Hello (bis) - $test"
+    }
+
+    @Listener(namespace = 'lal', topic='sampleHella')
+    def sampleHella(test) {
+        println "Adios bus) - $test"
+        while(1) {
+            sleep(3000)
+        }
+        'test2'
+    }
+}
