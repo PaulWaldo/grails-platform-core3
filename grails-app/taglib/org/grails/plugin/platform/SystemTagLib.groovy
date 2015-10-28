@@ -23,7 +23,6 @@ class SystemTagLib {
 
     static returnObjectForTags = ['config']
 
-    def grailsApplication
     def pluginManager
 
     def config = { attrs ->

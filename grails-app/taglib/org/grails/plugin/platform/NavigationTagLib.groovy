@@ -38,9 +38,8 @@ class NavigationTagLib {
         'flash',
         'params'
     ]
-    
+
     def grailsNavigation
-    def grailsApplication
 
     /**
      * Render a primary navigation menu

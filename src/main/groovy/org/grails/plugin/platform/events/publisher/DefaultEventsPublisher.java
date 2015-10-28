@@ -17,6 +17,7 @@
  */
 package org.grails.plugin.platform.events.publisher;
 
+import grails.persistence.support.PersistenceContextInterceptor;
 import groovy.lang.Closure;
 
 import java.util.Map;
@@ -25,7 +26,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.codehaus.groovy.grails.support.PersistenceContextInterceptor;
 import org.grails.plugin.platform.events.EventMessage;
 import org.grails.plugin.platform.events.EventReply;
 import org.grails.plugin.platform.events.registry.DefaultEventsRegistry;

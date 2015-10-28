@@ -17,7 +17,7 @@
  */
 package org.grails.plugin.platform.events;
 
-import org.codehaus.groovy.grails.commons.GrailsClass;
+import grails.core.GrailsClass;
 
 public interface EventsClass extends GrailsClass {
 }

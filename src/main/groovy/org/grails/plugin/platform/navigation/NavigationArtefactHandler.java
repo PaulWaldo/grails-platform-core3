@@ -17,7 +17,7 @@
  */
 package org.grails.plugin.platform.navigation;
 
-import org.codehaus.groovy.grails.commons.ArtefactHandlerAdapter;
+import grails.core.ArtefactHandlerAdapter;
 
 public class NavigationArtefactHandler extends ArtefactHandlerAdapter {
 

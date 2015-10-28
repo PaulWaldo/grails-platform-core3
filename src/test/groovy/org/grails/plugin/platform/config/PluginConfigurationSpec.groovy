@@ -18,11 +18,10 @@
 package org.grails.plugin.platform.config
 
 import grails.test.*
+import org.grails.plugin.platform.util.ClosureInvokingScript
 import spock.lang.*
 
 import grails.util.Holders
-import org.codehaus.groovy.grails.plugins.GrailsPluginManager
-import org.grails.plugin.platform.util.ClosureInvokingScript
 
 class PluginConfigurationSpec extends Specification {
 

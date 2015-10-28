@@ -15,7 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.injection
+
+import org.grails.plugin.platform.injection.InjectionImpl
 
 class InjectionTests extends GroovyTestCase {
     void testApplyMethodsTo() {

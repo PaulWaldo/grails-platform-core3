@@ -17,6 +17,7 @@
  */
 package org.grails.plugin.platform.events
 
+import grails.core.GrailsApplication
 import grails.events.EventDeclarationException
 import grails.events.Listener
 import grails.util.GrailsNameUtils
@@ -27,7 +28,6 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
 import org.apache.log4j.Logger
-import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.grails.plugin.platform.conventions.DSLCallCommand
 import org.grails.plugin.platform.conventions.DSLCommand
 import org.grails.plugin.platform.conventions.DSLEvaluator
