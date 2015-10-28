@@ -37,13 +37,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.task.AsyncTaskExecutor;
 
 /**
- * @author Stephane Maldini <smaldini@vmware.com>
+ * @author Stephane Maldini (smaldini@vmware.com)
  * @version 1.0
- * @file
- * @date 16/01/12
- * @section DESCRIPTION
- * <p/>
- * [Does stuff]
  */
 public class DefaultEventsPublisher implements EventsPublisher, ApplicationContextAware, InitializingBean {
 

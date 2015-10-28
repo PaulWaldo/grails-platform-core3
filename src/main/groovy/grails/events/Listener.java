@@ -24,13 +24,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Stephane Maldini <smaldini@vmware.com>
+ * @author Stephane Maldini (smaldini@vmware.com)
  * @version 1.0
- * @file
- * @date 02/01/12
- * @section DESCRIPTION
- * <p/>
- * Annotation for org.codehaus.groovy.grails.compiler.events
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})

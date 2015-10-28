@@ -30,13 +30,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author Stephane Maldini <smaldini@vmware.com>
+ * @author Stephane Maldini (smaldini@vmware.com)
  * @version 1.0
- * @file
- * @date 30/12/11
- * @section DESCRIPTION
- * <p/>
- * [Does stuff]
  */
 public class EventReply implements Serializable, Future<Object> {
 

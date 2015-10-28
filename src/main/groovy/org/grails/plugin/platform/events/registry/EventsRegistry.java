@@ -22,13 +22,8 @@ import groovy.lang.Closure;
 import java.lang.reflect.Method;
 
 /**
- * @author Stephane Maldini <smaldini@vmware.com>
+ * @author Stephane Maldini (smaldini@vmware.com)
  * @version 1.0
- * @file
- * @date 02/01/12
- * @section DESCRIPTION
- * <p/>
- * [Does stuff]
  */
 public interface EventsRegistry {
 

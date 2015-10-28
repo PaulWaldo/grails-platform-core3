@@ -23,13 +23,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * @author Stephane Maldini <smaldini@vmware.com>
+ * @author Stephane Maldini (smaldini@vmware.com)
  * @version 1.0
- * @file
- * @date 30/12/11
- * @section DESCRIPTION
- * <p/>
- * [Does stuff]
  */
 public class EventMessage<D> implements Serializable {
 
