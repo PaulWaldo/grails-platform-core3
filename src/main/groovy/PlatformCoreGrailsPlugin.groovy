@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import grails.util.Holders
+//import grails.util.Holders
 import org.grails.plugin.platform.config.PluginConfigurationFactory
 import org.grails.plugin.platform.conventions.ConventionsImpl
 import org.grails.plugin.platform.events.EventsImpl
@@ -30,8 +30,8 @@ import org.grails.plugin.platform.security.SecurityImpl
 import org.grails.plugin.platform.ui.UiExtensions
 
 class PlatformCoreGrailsPlugin {
-    def version = "1.0.1-SNAPSHOT"
-    def grailsVersion = "1.3 > *"
+    def version = "3.0.0-SNAPSHOT"
+    def grailsVersion = "3.0 > *"
     def pluginExcludes = [
             "grails-app/conf/Test*.groovy",
             "grails-app/i18n/test.properties",
@@ -168,7 +168,7 @@ class PlatformCoreGrailsPlugin {
             grailsEventsRegistry(DefaultEventsRegistry)
             grailsEventsPublisher(DefaultEventsPublisher) {
                 grailsEventsRegistry = ref('grailsEventsRegistry')
-                persistenceInterceptor = ref("persistenceInterceptor")
+                //persistenceInterceptor = ref("persistenceInterceptor")
                 catchFlushExceptions = config.events.catchFlushExceptions
             }
 
@@ -179,17 +179,13 @@ class PlatformCoreGrailsPlugin {
             }
 
             if (!config.events.gorm.disabled) {
-                if (grailsVersion.startsWith('1')) {
-                    gormTopicSupport(GormTopicSupport1X)
-                } else {
-                    gormTopicSupport(GormTopicSupport2X) {
-                        translateTable = [
-                                'PreInsertEvent': 'beforeInsert', 'PreUpdateEvent': 'beforeUpdate', /*'PreLoadEvent': 'beforeLoad',*/
-                                'PreDeleteEvent': 'beforeDelete', 'ValidationEvent': 'beforeValidate', 'PostInsertEvent': 'afterInsert',
-                                'PostUpdateEvent': 'afterUpdate', 'PostDeleteEvent': 'afterDelete', /*'PostLoadEvent': 'afterLoad',*/
-                                'SaveOrUpdateEvent': 'onSaveOrUpdate'
-                        ]
-                    }
+                gormTopicSupport(GormTopicSupport2X) {
+                    translateTable = [
+                            'PreInsertEvent': 'beforeInsert', 'PreUpdateEvent': 'beforeUpdate', /*'PreLoadEvent': 'beforeLoad',*/
+                            'PreDeleteEvent': 'beforeDelete', 'ValidationEvent': 'beforeValidate', 'PostInsertEvent': 'afterInsert',
+                            'PostUpdateEvent': 'afterUpdate', 'PostDeleteEvent': 'afterDelete', /*'PostLoadEvent': 'afterLoad',*/
+                            'SaveOrUpdateEvent': 'onSaveOrUpdate'
+                    ]
                 }
                 grailsEventsGormBridge(GormBridgePublisher) {
                     gormTopicSupport = ref("gormTopicSupport")
