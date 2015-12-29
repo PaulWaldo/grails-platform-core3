@@ -60,6 +60,7 @@ class PluginConfigurationImpl implements PluginConfiguration, ApplicationContext
         // Apply pluginConfig to all artefacts that come from plugins
         '*' { clazz, artefact ->
             def pluginName = PluginUtils.getNameOfDefiningPlugin(applicationContext, clazz)
+            // PWW plugin name is always null for some reason!
             if (pluginName) {
                 def pluginConf = self.getPluginConfig(pluginName)
 
