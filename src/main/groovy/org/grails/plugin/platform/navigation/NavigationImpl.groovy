@@ -145,16 +145,23 @@ class NavigationImpl implements Navigation {
     }
 
     NavigationScope nodeForId(String path) {
+        log.error "nodeForId: ${path}"
         if (path) {
+            log.error "nodeForId: 1"
             if (path?.endsWith(NavigationScope.NODE_PATH_SEPARATOR)) {
+                log.error "nodeForId: 2"
                 if (path.size() > 1) {
+                    log.error "nodeForId: 3"
                     path = path[0..-2]
                 } else {
+                    log.error "nodeForId: 4"
                     path = ''
                 }
             }
+            log.error "nodeForId: newPath: ${path}"
             return nodesById[path]
         } else {
+            log.error "nodeForId: returning null"
             return null
         }
     }

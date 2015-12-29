@@ -130,7 +130,7 @@ class PlatformCoreGrailsPlugin {
         }
 
         def deployed = application.warDeployed
-        def grailsVersion = application.metadata['app.grails.version']
+        def grailsVersion = application.metadata['info.app.grailsVersion']
 
         // Security API
         if (!config.security.disabled) {
@@ -169,7 +169,7 @@ class PlatformCoreGrailsPlugin {
             grailsEventsPublisher(DefaultEventsPublisher) {
                 grailsEventsRegistry = ref('grailsEventsRegistry')
                 //persistenceInterceptor = ref("persistenceInterceptor")
-                catchFlushExceptions = config.events.catchFlushExceptions
+                //catchFlushExceptions = config.events.catchFlushExceptions
             }
 
             grailsEvents(EventsImpl) {
@@ -197,6 +197,7 @@ class PlatformCoreGrailsPlugin {
     }
 
     def doWithDynamicMethods = { ctx ->
+        // PWW This is where things are wrong (I think)
         def config = ctx.grailsApplication.config.plugin.platformCore
         ctx.grailsInjection.initInjections()
 

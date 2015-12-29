@@ -48,16 +48,24 @@ class NavigationTagLib {
      * @attr class Optional css class for the outer <ul>
      */
     def primary = { attrs, body ->
+        log.error "*******************************"
         if (!attrs.scope) {
+            log.error "1"
+            assert grailsNavigation
             attrs.scope = grailsNavigation.getDefaultScope(request, null)
             if (!attrs.scope) {
+                log.error "2"
                 attrs.scope = findScopeForActivationPath(attrs.path)
                 grailsNavigation.setDefaultScope(request, attrs.scope)
+                log.error "3"
             }
         }
+        log.error "4"
         if (!attrs.class) {
+            log.error "5"
             attrs.class = "nav primary"
         }
+        log.error "6"
         out << nav.menu(attrs, body)
     }
 
@@ -106,6 +114,7 @@ class NavigationTagLib {
      */
     def menu = { attrs, body ->
         // @todo remove attributes and pass-through all that are left to <ul>
+        log.error "10"
         def cssClass = attrs.class != null ? attrs.class : 'nav'
         def id = attrs.id ? " id=\"${attrs.id.encodeAsHTML()}\" " : ''
         def scope = attrs.scope
@@ -124,18 +133,23 @@ class NavigationTagLib {
             log.debug "Rendering menu for scope [${scope}]"
         }
 
+        log.error "11"
         def custom = attrs.custom
         def customBody = (custom == 'true') || custom.is(Boolean.TRUE)
 
         def activeNodes = findNodes(attrs.path)
 
+        log.error "12"
         def callbackContext = [:]
         for (varName in CALLBACK_CONTEXT_VARS) {
             callbackContext[varName] = this."$varName"
         }
 
+        log.error "13"
         def scopeNode = grailsNavigation.nodeForId(scope)
+        log.error "14"
         if (scopeNode) {
+            log.error "15"
             out << "<ul${id}"
             if (cssClass) {
                 out << " class=\"${cssClass.encodeAsHTML()}\""
@@ -181,6 +195,7 @@ class NavigationTagLib {
         } else if (log.debugEnabled) {
             log.debug "Attempt to render menu for scope [${scope}] but there was no navigation node found for that scope."
         }
+        log.error "Done!!"
     }
 
     def items = { attrs, body ->
