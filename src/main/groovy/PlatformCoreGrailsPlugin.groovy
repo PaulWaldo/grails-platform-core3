@@ -30,6 +30,7 @@ import org.grails.plugin.platform.security.SecurityImpl
 import org.grails.plugin.platform.ui.UiExtensions
 
 class PlatformCoreGrailsPlugin {
+    // TODO: Migrate these settings to GrailsPlatformCore3GrailsPlugin, then move the whole deal back here.  Then delete GrailsPlatformCore3GrailsPlugin
     def version = "3.0.0-SNAPSHOT"
     def grailsVersion = "3.0 > *"
     def pluginExcludes = [

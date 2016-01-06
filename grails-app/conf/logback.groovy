@@ -21,8 +21,8 @@ if (Environment.isDevelopmentMode() && targetDir) {
     }
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
     logger 'grails.app.taglib', DEBUG, ['STDOUT']
-//    logger 'grails.plugins', DEBUG, ['STDOUT']
+    logger 'grails.plugins', DEBUG, ['STDOUT']
 //    logger 'grails.app.plugins', DEBUG, ['STDOUT']
 //    logger 'org.codehaus.groovy.grails.plugins', DEBUG, ['STDOUT']
-    logger 'org.grails.plugin.platform', DEBUG, ['STDOUT']
+    //logger 'org.grails.plugin.platform', DEBUG, ['STDOUT']
 }
