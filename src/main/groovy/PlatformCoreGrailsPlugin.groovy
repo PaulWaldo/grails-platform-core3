@@ -16,6 +16,7 @@
  * limitations under the License.
  */
 //import grails.util.Holders
+import grails.plugins.Plugin
 import org.grails.plugin.platform.config.PluginConfigurationFactory
 import org.grails.plugin.platform.conventions.ConventionsImpl
 import org.grails.plugin.platform.events.EventsImpl
@@ -29,8 +30,7 @@ import org.grails.plugin.platform.navigation.NavigationImpl
 import org.grails.plugin.platform.security.SecurityImpl
 import org.grails.plugin.platform.ui.UiExtensions
 
-class PlatformCoreGrailsPlugin {
-    // TODO: Migrate these settings to GrailsPlatformCore3GrailsPlugin, then move the whole deal back here.  Then delete GrailsPlatformCore3GrailsPlugin
+class PlatformCoreGrailsPlugin  extends Plugin {
     def version = "3.0.0-SNAPSHOT"
     def grailsVersion = "3.0 > *"
     def pluginExcludes = [
@@ -41,7 +41,8 @@ class PlatformCoreGrailsPlugin {
             "grails-app/services/org/grails/plugin/platform/test/**/*.groovy",
             "grails-app/src/groovy/org/grails/plugin/platform/test/**/*.groovy",
             "grails-app/src/java/org/grails/plugin/platform/test/**/*.java",
-            "grails-app/views/test/**/*.gsp"
+            "grails-app/views/test/**/*.gsp",
+            "grails-app/views/error.gsp"
     ]
 
     def observe = ['*'] // We observe everything so we can re-apply dynamic methods, conventions etc
@@ -54,14 +55,11 @@ class PlatformCoreGrailsPlugin {
     ]
 
     def artefacts = [getNavigationArtefactHandler(), getEventsArtefactHandler()]
+    def profiles = ['web']
 
     def title = "Plugin Platform Core"
-
-
-
     def author = "Grails Plugin Collective"
     def authorEmail = "grails.plugin.collective@gmail.com"
-
     def organization = [name: 'Grails Plugin Collective', url: 'http://github.com/gpc']
 
     def description = 'Grails Plugin Platform Core APIs'
