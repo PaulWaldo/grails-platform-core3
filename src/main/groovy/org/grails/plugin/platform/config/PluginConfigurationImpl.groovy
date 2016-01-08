@@ -21,6 +21,7 @@ import grails.util.Environment
 import grails.util.GrailsNameUtils
 
 import org.codehaus.groovy.grails.commons.GrailsDomainClass
+import org.grails.config.PropertySourcesConfig
 import org.grails.plugin.platform.util.ClosureInvokingScript
 import org.grails.plugin.platform.util.PluginUtils
 import org.slf4j.LoggerFactory
@@ -332,7 +333,7 @@ class PluginConfigurationImpl implements PluginConfiguration, ApplicationContext
      * Merge new into old, working around the problems with merging ConfigObjects that already have
      * values or already have empty nodes in the old one
      */
-    void mergeConfigs(ConfigObject newConfig, ConfigObject oldConfig) {
+    void mergeConfigs(ConfigObject newConfig, PropertySourcesConfig oldConfig) {
         def merged = safeConfigMerge( newConfig, oldConfig)
 
         if (log.debugEnabled) {
