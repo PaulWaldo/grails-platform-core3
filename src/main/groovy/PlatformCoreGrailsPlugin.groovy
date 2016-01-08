@@ -16,7 +16,6 @@
  * limitations under the License.
  */
 //import grails.util.Holders
-import grails.plugins.Plugin
 import org.grails.plugin.platform.config.PluginConfigurationFactory
 import org.grails.plugin.platform.conventions.ConventionsImpl
 import org.grails.plugin.platform.events.EventsImpl
@@ -30,7 +29,7 @@ import org.grails.plugin.platform.navigation.NavigationImpl
 import org.grails.plugin.platform.security.SecurityImpl
 import org.grails.plugin.platform.ui.UiExtensions
 
-class PlatformCoreGrailsPlugin  extends Plugin {
+class PlatformCoreGrailsPlugin {
     def version = "3.0.0-SNAPSHOT"
     def grailsVersion = "3.0 > *"
     def pluginExcludes = [
