@@ -24,4 +24,5 @@ if (Environment.isDevelopmentMode() && targetDir) {
     logger 'grails.plugins', DEBUG, ['STDOUT']
     logger 'grails.app.plugins', DEBUG, ['STDOUT']
     logger 'grails', DEBUG, ['STDOUT']
+    logger 'org.grails.plugins', DEBUG, ['STDOUT']
 }
